@@ -10,6 +10,8 @@
         <parameter key="theodo_evolution_legacy_wrapper.autoload.codeigniter_class_loader.class">Theodo\Evolution\Bundle\LegacyWrapperBundle\Autoload\CodeIgniterClassLoader</parameter>
         <parameter key="theodo_evolution_legacy_wrapper.router_listener.class">Theodo\Evolution\Bundle\LegacyWrapperBundle\EventListener\RouterListener</parameter>
         <parameter key="theodo_evolution_legacy_wrapper.legacy_booter_listener.class">Theodo\Evolution\Bundle\LegacyWrapperBundle\EventListener\LegacyBooterListener</parameter>
+        <parameter key="theodo_evolution_legacy_wrapper.legacy_kernel.codeigniter.bridge.abstract.class">Theodo\Evolution\Bundle\LegacyWrapperBundle\Kernel\Bridge\AbstractCodeIgniterKernelBridge</parameter>
+        <parameter key="theodo_evolution_legacy_wrapper.legacy_kernel.codeigniter.bridge.basic.class">Theodo\Evolution\Bundle\LegacyWrapperBundle\Kernel\Bridge\BasicCodeIgniterKernelBridge</parameter>
     </parameters>
 
     <services>
@@ -50,5 +52,7 @@
         <service id="theodo_evolution_legacy_wrapper.legacy_kernel" alias="theodo_evolution_legacy_wrapper.legacy_kernel.symfony14" />
 
         <service id="theodo_evolution_legacy_wrapper.autoload.codeigniter_class_loader" class="%theodo_evolution_legacy_wrapper.autoload.codeigniter_class_loader.class%" public="false" />
+        <service id="theodo_evolution_legacy_wrapper.legacy_kernel.bridge.abstract" class="%theodo_evolution_legacy_wrapper.legacy_kernel.codeigniter.bridge.abstract.class%" abstract="true"/>
+        <service id="theodo_evolution_legacy_wrapper.legacy_kernel.bridge.basic" class="%theodo_evolution_legacy_wrapper.legacy_kernel.codeigniter.bridge.basic.class%" parent="theodo_evolution_legacy_wrapper.legacy_kernel.bridge.abstract"/>
     </services>
 </container>
